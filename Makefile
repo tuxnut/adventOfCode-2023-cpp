@@ -1,5 +1,5 @@
 CC = g++
-CPPFLAGS = -g -Wall -Wextra -std=c++17 -pedantic
+CPPFLAGS = -g -Wall -Wextra -std=c++11 -pedantic
 
 build:
 	${CC} ${CPPFLAGS} -o bin/${FILE} src/${FILE}.cpp

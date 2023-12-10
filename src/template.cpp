@@ -1,13 +1,17 @@
 #include "header.hpp"
 
-void problem1(vector<string> & lines)
+void problem1(vector<string> &lines)
 {
-    std::cout << "Problem 1 solution\n";
+    int result = 0;
+
+    std::cout << "Problem 1 solution:\t" << result << "\n";
 }
 
-void problem2(vector<string> & lines)
+void problem2(vector<string> &lines)
 {
-    std::cout << "Problem 2 solution\n";
+    int result = 0;
+
+    std::cout << "Problem 2 solution:\t" << result << "\n";
 }
 
 int main(int argc, char const *argv[])
