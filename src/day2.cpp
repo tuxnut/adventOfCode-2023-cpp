@@ -47,15 +47,47 @@ void problem1(vector<string> &lines)
 
 void problem2(vector<string> &lines)
 {
-    std::cout << "Problem 2 solution\n";
+    int result = 0;
+    regex re("((\\d+) (blue|red|green))");
+    smatch match;
+
+    for (auto &l : lines)
+    {
+        array<int, 3> cubes = {1, 1, 1};
+
+        while (regex_search(l, match, re))
+        {
+            auto qtt = match.str(2);
+            auto color = match.str(3);
+
+            if (color == "blue")
+            {
+                cubes[0] = (stoi(qtt) > cubes[0]) ? stoi(qtt) : cubes[0];
+            }
+            else if (color == "red")
+            {
+                cubes[1] = (stoi(qtt) > cubes[1]) ? stoi(qtt) : cubes[1];
+            }
+            else if (color == "green")
+            {
+                cubes[2] = (stoi(qtt) > cubes[2]) ? stoi(qtt) : cubes[2];
+            }
+
+            l = match.suffix().str();
+        }
+
+        result += cubes[0] * cubes[1] * cubes[2];
+    }
+
+    std::cout << "Problem 2 solution:\t" << result << "\n";
 }
 
 int main(int argc, char const *argv[])
 {
     vector<string> content = read_file("res/day2.txt");
 
-    problem1(content);
-    // problem2(content);
+    // problem1(content);
+    problem2(content);
 
     return 0;
 }
