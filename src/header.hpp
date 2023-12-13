@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <regex>
 #include <string>
+#include <set>
+#include <cmath>
 
 using namespace std;
 
@@ -33,4 +35,20 @@ vector<string> read_file(string filename)
 bool is_number(char c)
 {
     return c >= '0' && c <= '9';
+}
+
+vector<string> find_all(const string &source, const regex &matcher)
+{
+    vector<string> matches;
+    smatch match;
+
+    string copy = source;
+
+    while (regex_search(copy, match, matcher))
+    {
+        matches.push_back(match.str(1));
+        copy = match.suffix().str();
+    }
+
+    return matches;
 }
