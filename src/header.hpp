@@ -6,6 +6,18 @@
 
 using namespace std;
 
+struct Coo2
+{
+    size_t x;
+    size_t y;
+
+    void setCoo(size_t ix, size_t iy)
+    {
+        x = ix;
+        y = iy;
+    }
+};
+
 vector<string> read_file(string filename)
 {
     vector<string> lines;

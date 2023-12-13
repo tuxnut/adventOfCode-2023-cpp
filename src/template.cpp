@@ -2,14 +2,14 @@
 
 void problem1(vector<string> &lines)
 {
-    int result = 0;
+    size_t result = 0;
 
     std::cout << "Problem 1 solution:\t" << result << "\n";
 }
 
 void problem2(vector<string> &lines)
 {
-    int result = 0;
+    size_t result = 0;
 
     std::cout << "Problem 2 solution:\t" << result << "\n";
 }
