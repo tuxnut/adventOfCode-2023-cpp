@@ -47,17 +47,27 @@ void problem2(vector<string> &lines)
 
     map<size_t, int> nb_card_per_id;
     for (size_t i = 0; i < lines.size(); i++)
+        nb_card_per_id.insert({i, 1});
+
+    for (size_t i = 0; i < lines.size(); i++)
     {
-        auto l = lines[i];
+        const auto l = lines[i];
         vector<int> &&winings = capture_winings(l);
         vector<int> &&owned = capture_owned(l);
         set<int> uniq_owned(owned.begin(), owned.end());
 
-        int nb_wining_card = 0;
+        int copy_won = 0;
         for (auto &&w : winings)
             if (uniq_owned.find(w) != uniq_owned.end())
-                nb_wining_card++;
+            {
+                copy_won++;
+                int nb_copy_current_card = nb_card_per_id[i];
+                nb_card_per_id[i + copy_won] += nb_copy_current_card;
+            }
     }
+
+    for (auto &&[id, nb] : nb_card_per_id)
+        result += nb;
 
     std::cout << "Problem 2 solution:\t" << result << "\n";
 }
@@ -66,7 +76,7 @@ int main(int argc, char const *argv[])
 {
     vector<string> content = read_file("res/day4.txt");
 
-    // problem1(content);
+    problem1(content);
     problem2(content);
 
     return 0;
