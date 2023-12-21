@@ -53,3 +53,12 @@ vector<string> find_all(const string &source, const regex &matcher)
 
     return matches;
 }
+
+template <typename T>
+void print_vec(const vector<T> &vec)
+{
+    for (auto &&i : vec)
+    {
+        cout << i << "\n";
+    }
+}
